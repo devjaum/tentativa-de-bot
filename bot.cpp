@@ -5,8 +5,13 @@
 #include <stdlib.h>
 main()
 {
+	int  ms[3][3],ml2[3][3], jogadaP, jogadaB, k, i, i2, j2, j,p,u, y, t, vB1[9], vB2[9], vB3[9], vP[9];
 	char ml[3][3], jogaras;
+	jogadaP = jogadaB = k = i2 = j2 = i = j = t = u = y = 0;
 	jogaras = 'n';
+	do{//Jogo;
+		while(i<9){//Dando valor para os vetores;
+			vP[i]=0;
 			vB1[i]=0;
 			vB2[i]=0;
 			vB3[i]=0;
@@ -23,6 +28,7 @@ main()
 		
 			for(j=0;j<3;j++){
 				k++;
+				ml2[i][j]=k;
 				if (j==1&&i==1)//layout de pontos;
 				ms[i][j]=4;
 				else if (i==0&&j==0||i==0&&j==2||i==2&&j==0||i==2&&j==2)
@@ -33,11 +39,13 @@ main()
 	}
 		for(i=0;i<3;i++){//layout pronto;
 		
+			/*for(j=0;j<3;j++){
 				if (j<2)
 				printf ("%d |", ml[i][j]);
 				else
 				printf ("%d\n", ml[i][j]);
 				
+			}*/
 			}
 		/*for(i=0;i<3;i++){//layout pronto;
 		
@@ -49,37 +57,78 @@ main()
 				
 			}
 		}*/
+
 		int l=k=p=0;
-			for(i=0;i<3;i++){
-				for(j=0;j<3;j++){
-					
-					scanf(" %d", &jogadaP[y]);
+			for(i=0;i<3;i++){//Zerando as jogadas invalidas;
 				vP[i]=0;
-					
-					while(k<9){//Jogadas invalidas;
-						if(jogadaP[y]==vP[k])
-						exit (0);
-						printf("\n%d", vP[k]);
-						k++;
+			}
+				for(i=0;i<3;i++){
+					for(j=0;j<3;j++){
+						for(i2=0;i2<3;i2++){//mostra as jogadas;
+							for(j2=0;j2<3;j2++){
+								if (j2<2)
+								printf ("	%c |", ml[i2][j2]);
+								else
+								printf ("	%c\n", ml[i2][j2]);
+						}
 					}
-					k=0;
-					vP[t]=jogadaP[y];
-					t++,y++;
-						if(jogadaP[y]==ml[i][j]&&vP[k-1]!=jogadaP[y])//analise;
-						(ml[i][j]='X',ms[i][j]=ms[i][j]*(-1));
+								for(i2=0;i2<3;i2++){//mostra os numeros para as jogadas;
+									for(j2=0;j2<3;j2++){
+										if (j2<2)
+										printf ("%d |", ml2[i2][j2]);
+										else
+										printf ("%d\n", ml2[i2][j2]);	
+								}
+							}
+					printf("Sua vez!");
+					scanf(" %d", &jogadaP);
+					
+										for(k=0;k<9;k++){//Jogadas invalidas;
+											if(jogadaP==vP[k])
+											exit (0);
+					}
+					vP[t]=jogadaP;
+					t++;
+											for(i2=0;i2<3;i2++){
+												for(j2=0;j2<3;j2++){
+													if(jogadaP==ml2[i2][j2])//analise;
+													(ml[i2][j2]='X',ms[i2][j2]=-1);
+						}
+					}
+				for(i2=0;i2<3;i2++){
+					for(j2=0;j2<3;j2++){
 						
-							if(i==0&&j==0||j>i&&i==0)
-							(vB1[l]=vB1[l-1]+ms[i][j],l++);
-							else if(i==1)
-							(vB2[k]=vB2[k-1]+ms[i][j],k++);
-							else if (i==2&&i>j||i==2&&j==2)
-							(vB3[p]=vB3[p-1]+ms[i][j],p++);		
+					
+				
+					if(i2==0&&j2==0||j2>i2&&i2==0)
+					(vB1[l]=vB1[l-1]+ms[i2][j2],l++);
+					else if(i2==1)
+					(vB2[k]=vB2[k-1]+ms[i2][j2],k++);
+					else if (i2==2&&i2>j2||i2==2&&j==2)
+					(vB3[p]=vB3[p-1]+ms[i2][j2],p++);		
+					system("cls");
+					
+						
+					}
+				}		
 			
+	}
+}
+		for(i2=0;i2<3;i2++){//mostra as jogadas;
+			for(j2=0;j2<3;j2++){
+				if (j2<2)
+				printf ("	%c |", ml[i2][j2]);
+				else
+				printf ("	%c\n", ml[i2][j2]);
 			}
-			}
+		}
 		printf("Deseja jogar novamente?:(S/N)");
 		scanf(" %c", &jogaras);
-	}while(jogaras=='s'||jogaras=='S');
+		system("cls");
+		t=k=0;
+
+
+}while(jogaras=='s'||jogaras=='S');
 
 
 
