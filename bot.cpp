@@ -5,19 +5,11 @@
 #include <stdlib.h>
 main()
 {
-	int  ms[3][3], jogadaP[9], jogadaB, k, i, j,p,u, y, t, vB1[3], vB2[3], vB3[3], vP[9];
 	char ml[3][3], jogaras;
-	jogadaB = k = i = j = t = u = y = 0;
 	jogaras = 'n';
-		for(i=0;i<9;i++){
-		
 			vB1[i]=0;
 			vB2[i]=0;
 			vB3[i]=0;
-	}
-		i=0;
-		while(i<9){
-			vP[i]=0;
 			i++;
 			
 		}
@@ -31,7 +23,6 @@ main()
 		
 			for(j=0;j<3;j++){
 				k++;
-				ml[i][j]=k;
 				if (j==1&&i==1)//layout de pontos;
 				ms[i][j]=4;
 				else if (i==0&&j==0||i==0&&j==2||i==2&&j==0||i==2&&j==2)
@@ -42,13 +33,11 @@ main()
 	}
 		for(i=0;i<3;i++){//layout pronto;
 		
-			for(j=0;j<3;j++){
 				if (j<2)
 				printf ("%d |", ml[i][j]);
 				else
 				printf ("%d\n", ml[i][j]);
 				
-			}
 			}
 		/*for(i=0;i<3;i++){//layout pronto;
 		
@@ -60,12 +49,12 @@ main()
 				
 			}
 		}*/
-	do{//Jogo;
 		int l=k=p=0;
 			for(i=0;i<3;i++){
 				for(j=0;j<3;j++){
 					
 					scanf(" %d", &jogadaP[y]);
+				vP[i]=0;
 					
 					while(k<9){//Jogadas invalidas;
 						if(jogadaP[y]==vP[k])
